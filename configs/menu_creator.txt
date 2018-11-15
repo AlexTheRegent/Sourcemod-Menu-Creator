@@ -1,0 +1,49 @@
+create			|mainMenu						|menu
+regcmd			|sm_mainmenu					|
+title			|[ Menu Creator ]{nl}{ } 		|
+item			|Правила сервера				|sm_mc_om {cl} rulesMenu
+item			|Создатель плагина				|sm_mc_om {cl} aboutAuthor
+item			|Поздороваться с игроками		|sm_mc_ol {cl} greetings {q1}sm_mc_fc {cl} "say {greetings}"{q1}sm_mc_om {cl} mainMenu
+settime			|mainMenu						|5
+
+create			|rulesMenu						|panel
+title			|[ Правила Сервера ]{nl}{ } 	|
+text			|Не спорить с администрацией
+text			|Не использовать читы
+text			|Не ругаться матом
+text			|{ }
+setpos 			|9
+setback			|mainMenu
+setpos			|10
+item			|Выход
+
+create			|aboutAuthor					|panel
+title			|[ Автор Плагина ]				|
+text			|AlexTheRegent aka Reiko1231
+text			|Skype: LLReiko1231LL
+text			|{ }
+setpos 			|9
+setback			|mainMenu
+setpos			|10
+item			|Выход
+
+create			|greetings						|list
+title			|[ Приветствия ]{nl}{ } 		|
+item			|Всем привет					|Всем привет
+item			|Всем привет!					|Всем привет!
+item			|Привет всем					|Привет всем
+item			|Привет всем!					|Привет всем!
+
+create			|mainAdmin						|menu
+regcmd			|sm_mainadmin					|z
+title			|[ Админка ]{nl}{ } 			|
+item			|Рестарт карты					|mp_restartgame 1; sm_mc_om {cl} mainAdmin
+item			|Выключить сервер				|exit
+item			|Кикнуть игрока					|sm_mc_odl {cl} userids1 2 0 sm_mc_ol {cl} kickreasons {q1}sm_mc_fc {cl} "sm_kick #{userids1} {kickreasons}"{q1}sm_mc_om {cl} mainAdmin
+settime			|mainAdmin						|5
+
+create			|kickreasons					|list
+title			|[ Причина кика ]{nl}{ } 		|
+item			|Спорит с администрацией		|Спорит с администрацией
+item			|Использует читы				|Использует читы
+item			|Ругается матом					|Ругается матом
